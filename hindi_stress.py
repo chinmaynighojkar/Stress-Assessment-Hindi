@@ -14,11 +14,11 @@ worksheet = spreadsheet.get_worksheet(0)  # Assuming the data is in the first wo
 
 def categorize_stress_level(total_score):
     if total_score <= 13:
-        return "आपका तनाव स्तर कम है।"
+        return "आपका तनाव स्तर कम है। (You have low stress)"
     elif 14 <= total_score <= 26:
-        return "आपका तनाव स्तर मध्यम है।"
+        return "आपका तनाव स्तर मध्यम है। (You have moderate stress)"
     else:
-        return "आपका तनाव स्तर अत्यधिक है।"
+        return "आपका तनाव स्तर अत्यधिक है। (You have high perceived stress)"
 
 def submit_survey_data(name, email, mobile_number, company_name, total_score, stress_level):
     data = [name, email, mobile_number, company_name, total_score, stress_level]
@@ -173,7 +173,7 @@ def get_user_info():
     
     # Validate that name, email, mobile_number, and company_name are not empty
     if not name.strip() or not email.strip() or not mobile_number.strip() or not company_name.strip():
-        st.warning("कृपया सभी विवरण भरें।")
+        st.warning("कृपया सभी विकल्प भरें।")
         return None, None, None, None
 
     return name, email, mobile_number, company_name    
@@ -226,8 +226,12 @@ def main():
     score10 = survey_question_10()
     st.divider()
     
+    st.markdown("अपना जानकारी हमारे साथ साझा करें ताकि हम आपसे संपर्क कर आपकी सहायता कर सकें।")
+    st.markdown("(Share your details so that we can connect and help you)")
     # Collect user information
     name, email, mobile_number, company_name = get_user_info()
+    
+    
     
     # Handle the case where no option is selected for any question
     if any(score is None for score in [score1, score2, score3, score4, score5, score6, score7, score8, score9, score10, name, email, mobile_number, company_name]):
@@ -238,7 +242,7 @@ def main():
     total_score = score1 + score2 + score3 + score4 + score5 + score6 + score7 + score8 + score9 + score10
     
     # Display total score
-    st.subheader(f"आपका तनाव स्कोर 40 में से {total_score} है")
+    st.subheader(f"आपका तनाव स्कोर 40 में से {total_score} है। (Your stress score is {total_score})")
 
     # Categorize stress level and display result
     stress_level = categorize_stress_level(total_score)
@@ -247,6 +251,7 @@ def main():
 # Submit data to Google Sheets
     if st.button("Submit"):
         submit_survey_data(name, email, mobile_number, company_name, total_score, stress_level)
- 
+
+
 if __name__ == "__main__":
     main()
