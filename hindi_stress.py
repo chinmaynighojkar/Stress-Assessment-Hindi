@@ -152,7 +152,7 @@ def survey_question_9():
     return score
 
 def survey_question_10():
-    st.markdown("Q10. पिछले महीने, कितनी बार आपने यह महसूस किया है कि समस्याएं इतनी  ज़्यादा हैं कि आप उनसे उभर नहीं पा रहे हैं?")
+    st.markdown("Q10. पिछले महीने, कितनी बार आपने यह महसूस किया है, कि समस्याएं इतनी ज़्यादा हैं कि आप उनसे उभर नहीं पा रहे हैं?")
     st.markdown("(In the last month, how often have you felt difficulties piling up so high that you could not overcome them?)")
     options = ["कभी नहीं  (Never)", "लगभग कभी नहीं  (Almost Never)", "कभी-कभी (Sometimes)", "अक्सर (Fairly Often)", "लगभग हमेशा (Very Often)"]
     selected_option = st.radio("", options, index=None, key="question10")
