@@ -226,7 +226,7 @@ def main():
     score10 = survey_question_10()
     st.divider()
     
-    st.markdown("अपना जानकारी हमारे साथ साझा करें ताकि हम आपसे संपर्क कर आपकी सहायता कर सकें।")
+    st.markdown("अपनी जानकारी हमारे साथ साझा करें ताकि हम आपसे संपर्क कर आपकी सहायता कर सकें।")
     st.markdown("(Share your details so that we can connect and help you)")
     # Collect user information
     name, email, mobile_number, company_name = get_user_info()
