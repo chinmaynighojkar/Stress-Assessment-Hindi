@@ -40,7 +40,7 @@ def survey_question_1():
     return score
 
 def survey_question_2():
-    st.markdown("Q2. पिछले महीने, कितनी बार आपने महसूस किया है कि आप आपने जीवन की महत्वपूर्ण चीजों को नियंत्रित  नहीं कर पा रहे थे?")
+    st.markdown("Q2. पिछले महीने, कितनी बार आपने महसूस किया है कि आप अपने जीवन की महत्वपूर्ण चीजों को नियंत्रित  नहीं कर पा रहे थे?")
     st.markdown("(In the last month, how often have you felt that you were unable to control the important things in your life?)")
     options = ["कभी नहीं  (Never)", "लगभग कभी नहीं  (Almost Never)", "कभी-कभी (Sometimes)", "अक्सर (Fairly Often)", "लगभग हमेशा (Very Often)"]
     selected_option = st.radio("", options, index=None, key="question2")
