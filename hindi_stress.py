@@ -1,6 +1,7 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import streamlit as st
+from datetime import datetime
 
 # Set up Google Sheets API credentials
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
@@ -21,7 +22,11 @@ def categorize_stress_level(total_score):
         return "आपका तनाव स्तर अत्यधिक है। (You have high perceived stress)"
 
 def submit_survey_data(name, email, mobile_number, company_name, total_score, stress_level):
-    data = [name, email, mobile_number, company_name, total_score, stress_level]
+    current_datetime = datetime.now()
+    formatted_date = current_datetime.strftime("%d/%m/%Y")
+    formatted_time = current_datetime.strftime("%H:%M:%S")
+    
+    data = [formatted_date, formatted_time, name, email, mobile_number, company_name, total_score, stress_level]
     worksheet.append_row(data)
     st.success("Your request is submitted successfully!")
     
